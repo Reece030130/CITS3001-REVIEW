@@ -1,46 +1,32 @@
-name: Auto Branch for Issue
+name: Auto-create branch from issue
+
 on:
   issues:
-    types: [assigned]
+    types: [opened]
 
 jobs:
   create-branch:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        token: ${{ secrets.GH_PAT }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Debug Git Branch Creation
-      env:
-        GH_TOKEN: ${{ secrets.GH_PAT }}
-      run: |
-        ISSUE_NUMBER=${{ github.event.issue.number }}
-        ISSUE_TITLE="${{ github.event.issue.title }}"
+      - name: Create branch from issue
+        run: |
+          ISSUE_NUMBER=$(echo "${{ github.event.issue.number }}" | tr -d '\n')
+          ISSUE_TITLE=$(echo "${{ github.event.issue.title }}" | tr -d '\n' | tr ' ' '-')
+          BRANCH_NAME="issue-${ISSUE_NUMBER}-${ISSUE_TITLE,,}"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git checkout -b "$BRANCH_NAME"
+          git push origin "$BRANCH_NAME"
 
-        # Clean and format the issue title for branch naming
-        ISSUE_BRANCH="issue-${ISSUE_NUMBER}-${ISSUE_TITLE// /-}"
-        ISSUE_BRANCH=$(echo "$ISSUE_BRANCH" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-' | cut -c1-63)
-
-        echo "Creating branch: $ISSUE_BRANCH"
-
-        # Configure Git with bot credentials
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        
-        # Fetch all branches and switch to the default branch (assumed as 'main')
-        git fetch origin
-        git checkout main
-        
-        # Debugging logs to show current status
-        git status
-        git branch -a
-        
-        # Create the new branch and push
-        git checkout -b "$ISSUE_BRANCH"
-        git push -u origin "$ISSUE_BRANCH"
-
-        echo "Branch $ISSUE_BRANCH created and pushed"
+      - name: Add comment to issue
+        run: |
+          ISSUE_NUMBER=$(echo "${{ github.event.issue.number }}" | tr -d '\n')
+          BRANCH_NAME="issue-${ISSUE_NUMBER}-${ISSUE_TITLE,,}"
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -d "{\"body\": \"Branch \`$BRANCH_NAME\` has been created.\"}" \
+            https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER/comments
