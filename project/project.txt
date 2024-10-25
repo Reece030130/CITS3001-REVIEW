@@ -1,0 +1,14 @@
+Student Number: 22857062
+DOMjudge Team: Reece
+Problem "biggest": http://domjudge.gozz.au/team/submission/6572
+Problem "bubble": not solved
+Problem "eating": http://domjudge.gozz.au/team/submission/6651
+Problem "falling": http://domjudge.gozz.au/team/submission/7265
+Problem "find": http://domjudge.gozz.au/team/submission/7849
+Problem "flip": http://domjudge.gozz.au/team/submission/12393
+Problem "iguana": not solved
+Problem "juicy": not solved
+Problem "jumpy": http://domjudge.gozz.au/team/submission/10325
+Problem "land": not solved
+Problem "lost": http://domjudge.gozz.au/team/submission/10207
+Problem "loudest": http://domjudge.gozz.au/team/submission/6711
