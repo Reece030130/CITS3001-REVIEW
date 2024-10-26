@@ -1,3 +1,20 @@
 # CITS3001-REVIEW-DOMjudge-Team: Reece
   * mountainwaterfall http://domjudge.gozz.au/team/submission/14243 
   * gostonepuzzle http://domjudge.gozz.au/team/submission/14268
+  * APLUSB http://domjudge.gozz.au/team/submission/304
+  * INVCOUNTSMALL http://domjudge.gozz.au/team/submission/718
+  * INVCOUNTLARGE http://domjudge.gozz.au/team/submission/738
+  * MAXSUMSUBARRAYSMALL http://domjudge.gozz.au/team/submission/1580
+  * MAXSUMSUBARRAYLARGE http://domjudge.gozz.au/team/submission/1586
+  * COUNTPRIMESMALL http://domjudge.gozz.au/team/submission/1878
+  * COUNTPRIMEMEDIUM http://domjudge.gozz.au/team/submission/2313
+  * COUNTPRIMELARGE http://domjudge.gozz.au/team/submission/2336
+  * INKYSQUBES http://domjudge.gozz.au/team/submission/2854
+  * biggest http://domjudge.gozz.au/team/submission/6572
+  * eating http://domjudge.gozz.au/team/submission/6651
+  * falling http://domjudge.gozz.au/team/submission/7265
+  * find http://domjudge.gozz.au/team/submission/7849
+  * flip http://domjudge.gozz.au/team/submission/12393
+  * jumpy http://domjudge.gozz.au/team/submission/10325
+  * lost http://domjudge.gozz.au/team/submission/10207
+  * loudest http://domjudge.gozz.au/team/submission/6711
