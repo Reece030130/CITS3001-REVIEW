@@ -18,3 +18,4 @@
   * jumpy http://domjudge.gozz.au/team/submission/10325
   * lost http://domjudge.gozz.au/team/submission/10207
   * loudest http://domjudge.gozz.au/team/submission/6711
+  * flavoursgalore http://domjudge.gozz.au/team/submission/14283
